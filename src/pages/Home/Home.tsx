@@ -1,4 +1,6 @@
+
 import AboutUs from "./about";
+import Contact from "./Contack";
 import HeroSection from "./HeroSection";
 import OurTeam from "./OurTeam";
 import Service from "./Service";
@@ -11,6 +13,8 @@ const Home = () => {
     <Service></Service>
     <AboutUs></AboutUs>
     <OurTeam></OurTeam>
+    <Contact></Contact>
+    
         </div>
     );
 };
