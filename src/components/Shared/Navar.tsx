@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 import { ModeToggle } from "../mode-toggle";
-import { ShoppingBagIcon, MenuIcon } from "lucide-react";
+import {  MenuIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import {
   DropdownMenu,
@@ -14,9 +14,10 @@ const Navar = () => {
     "font-bold hover:text-primary hover:underline hover:decoration-black hover:underline-offset-4 dark:hover:decoration-white";
 
   return (
-    <div className="flex items-center justify-between px-4 py-3 md:py-5 relative">
-
-      <div className="md:hidden absolute left-4">
+    <div className="px-4 py-3 md:py-5">
+      {/* Mobile navbar (Dropdown) */}
+      <div className="flex items-center justify-between md:hidden">
+        {/* Left side (Menu icon) */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
@@ -44,25 +45,23 @@ const Navar = () => {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
 
-      {/* Center Logo */}
-      <div className="mx-auto">
-        <h1 className="text-primary font-bold lg:text-4xl text-xl">Poket</h1>
-      </div>
+        {/* Center Logo */}
+        <h1 className="text-primary font-bold text-xl">Impulseia.com</h1>
 
-      {/* Right side icons */}
-      <div className="gap-2 flex absolute right-4">
-        <Button variant={"outline"} className="rounded-full">
-          <ShoppingBagIcon />
-        </Button>
-        <div className="rounded-full">
+        {/* Right side icons */}
+        <div className="flex gap-2">
+          
           <ModeToggle />
         </div>
       </div>
 
-      {/* Desktop Nav - hidden on mobile */}
-      <div className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2 top-full mt-2">
+      {/* Desktop navbar (flex row) */}
+      <div className="hidden md:flex items-center justify-between">
+        {/* Left side: Logo */}
+        <h1 className="text-primary font-bold lg:text-4xl text-2xl">Impulseia.com</h1>
+
+        {/* Center: Menu Links */}
         <ul className="flex gap-6">
           <NavLink to="/" className={linkClass}>
             <li>Home</li>
@@ -83,6 +82,12 @@ const Navar = () => {
             <li>Contact</li>
           </NavLink>
         </ul>
+
+        {/* Right side: Icons */}
+        <div className="flex gap-2">
+         
+          <ModeToggle />
+        </div>
       </div>
     </div>
   );
